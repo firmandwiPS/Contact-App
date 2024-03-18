@@ -1,0 +1,55 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Daftar Contact</h2>
+
+      <!-- add -->
+      <a href="/contact/add" class="btn btn-success mt-2">Tambah Data Contact</a>
+      <!-- add selesai -->
+
+    <% if (msg.length !== 0) { %>
+      <div class="alert alert-success mt-2" role="alert">
+        <%= msg %>
+      </div>
+    <% } %>
+
+      <!-- table -->
+      <table class="table mt-3">
+        <thead>
+          <tr class="table-primary">
+            <th scope="col">#</th>
+            <th scope="col">Nama</th>
+            <th scope="col">No HP</th>
+            <th scope="col">Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (contacts.length === 0) { %>
+          <tr>
+            <td colspan="4">
+              <div class="alert alert-danger fw-bold" role="alert">
+                Data contact masih kosong
+              </div>
+            </td>
+          </tr>
+          <% } %> 
+          <% contacts.forEach((contact,i) => { i++%>
+          <tr>
+            <th scope="row"><%= i++ %></th>
+            <td><%= contact.nama %></td>
+            <td><%= contact.nohp %></td>
+            <td>
+              <a
+                href="/contact/<%= contact.nama %>"
+                class="btn btn-primary badge rounded-pill"
+                ><i class="bi bi-info-circle"></i> detail</a
+              >
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <!-- table selesai -->
+    </div>
+  </div>
+</div>

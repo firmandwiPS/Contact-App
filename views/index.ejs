@@ -1,0 +1,15 @@
+<h1>HELLO WORLD,INI HALAMAN HOME</h1>
+
+<h2>HALO NAMA SAYA <%= nama %>
+</h2>
+
+<h4>Daftar siswa</h4>
+<% siswa.forEach(sws=> { %>
+  <ul>
+    <li>Nama: <%= sws.nama %>
+    </li>
+    <li>Email: <%= sws.email %>
+    </li>
+  </ul>
+
+  <% }) %>
